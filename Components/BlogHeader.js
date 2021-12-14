@@ -9,7 +9,7 @@ function BlogHeader({  }) {
       <div className="cursor-pointer group px-6 py-6 md:px-10 md:w-1/3 flex flex-col items-start rounded transform">
         <span className="inline-block py-1 px-2 rounded bg-gray-100 dark:bg-indigo-900 text-indigo-700 dark:text-gray-200 text-sm font-medium tracking-widest">
           {/* {data.Tags.split(" ")[0]} */}
-          <p>Development Interview</p>
+          <p>Development</p>
         </span>
         <h2 className="sm:text-2xl text-xl title-font font-semibold text-gray-700 mt-4 mb-4 dark:text-gray-100 group-hover:text-indigo-800 dark:group-hover:text-indigo-400">
           {/* {data.Title} */}

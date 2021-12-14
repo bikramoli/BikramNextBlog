@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar';
 import Header from '../Components/Header';
 import BlogHeader from '../Components/BlogHeader';
 import Footer from '../Components/Footer';
+import Tag from '../Components/Tag';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className='min-h-screen relative bg-white dark:bg-gray-900'>
         <Navbar/>
         <Header/>
+        <Tag/>
         <BlogHeader/>
         <Footer/>
       </div>
