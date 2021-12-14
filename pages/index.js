@@ -4,8 +4,19 @@ import Header from '../Components/Header';
 import BlogHeader from '../Components/BlogHeader';
 import Footer from '../Components/Footer';
 import Tag from '../Components/Tag';
+import {datas} from './Data';
+import { data } from 'autoprefixer';
 
-export default function Home() {
+
+export const getStaticProps =()=>{
+
+  return{
+    props:{
+      data: datas
+    }
+  }
+}
+export default function Home({data}) {
   return (
     <>
       <Head>
@@ -16,7 +27,19 @@ export default function Home() {
       <div className='min-h-screen relative bg-white dark:bg-gray-900'>
         <Navbar/>
         <Header/>
-        <Tag/>
+        
+        <div className=" w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center ">
+              {datas.map((tag,index) => (
+                <span
+                  key={index}
+                  className="inline-block px-3 ml-3 py-1 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded-full bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+        
         <BlogHeader/>
         <Footer/>
       </div>
