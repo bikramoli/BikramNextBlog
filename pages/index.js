@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Navbar from '../Components/Navbar';
+import Header from '../Components/Header';
+
 export default function Home() {
   return (
     <div className='flex min-h-screen justify-center items-center'>
@@ -10,6 +12,7 @@ export default function Home() {
       </Head>
       <div className='min-h-screen relative bg-white dark:bg-gray-900'>
         <Navbar/>
+        <Header/>
 
       </div>
         
