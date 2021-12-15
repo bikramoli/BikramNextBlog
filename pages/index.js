@@ -6,17 +6,18 @@ import Footer from '../Components/Footer';
 import Tag from '../Components/Tag';
 import {datas} from './Data';
 import { Vlogs } from './Data';
+import { getAllBlogPosts } from '../Lib/Data';
 
 
 export const getStaticProps =()=>{
-
+const allBlogs = getAllBlogPosts();
   return{
     props:{
-      data: datas
+      blogs: allBlogs
     }
   }
 }
-export default function Home({data}) {
+export default function Home({blogs}) {
   return (
     <>
       <Head>
@@ -37,11 +38,14 @@ export default function Home({data}) {
          {/* vlog header map function */}
          <div className="px-0.5 md:px-7 pb-14 pt-6 mx-auto">
           <div className="flex flex-wrap">
-            {Vlogs.map( (vlog)=> {
-                const { id, tag, title, description, author, date } = vlog
+            {blogs.map( (blog)=> {
                 return (
                     <>
-                        <BlogHeader key={id} id={id} tag={tag} title={title} description={description} author={author} date={date}  />
+                        <BlogHeader  
+                        key={blog.data.Id}
+                        data={blog.data}
+                        content={blog.content}
+                         />
                         
                     </>
                 )
