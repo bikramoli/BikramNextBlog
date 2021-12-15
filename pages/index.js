@@ -27,12 +27,13 @@ export default function Home({data}) {
       <div className='min-h-screen relative bg-white dark:bg-gray-900'>
         <Navbar/>
         <Header/>
-        
+        {/* Tag are displayed here... */}
         <div className=" w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center ">
               {datas.map((tag,index) => (
                <Tag key={index} tag={tag}/>
               ))}
             </div>
+
          {/* vlog header map function */}
          <div className="px-0.5 md:px-7 pb-14 pt-6 mx-auto">
           <div className="flex flex-wrap">

@@ -4,7 +4,7 @@ import Link from "next/link";
 function BlogHeader(props) {
   return (
     <Link
-      href={`/blogs/}`}
+      href={`/blogs/${String(props.title.split(" ").join("-").toLowerCase())}}`}
     >
       <div className="cursor-pointer group px-6 py-6 md:px-10 md:w-1/3 flex flex-col items-start rounded transform">
         <span className="inline-block py-1 px-2 rounded bg-gray-100 dark:bg-indigo-900 text-indigo-700 dark:text-gray-200 text-sm font-medium tracking-widest">
@@ -30,7 +30,7 @@ function BlogHeader(props) {
           <a className="inline-flex items-center">
             <span className="flex-grow flex flex-col pl-4">
               <span className="title-font font-medium text-sm text-gray-600 dark:text-indigo-200">
-                <h4>Bikram Oli</h4>
+                <h4>{props.author}</h4>
               </span>
               <span className="text-gray-900 text-xs tracking-widest mt-0.5 dark:text-indigo-300">
                 <h4> 2 min read</h4>
