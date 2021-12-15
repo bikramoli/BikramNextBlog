@@ -5,7 +5,6 @@ import BlogHeader from '../Components/BlogHeader';
 import Footer from '../Components/Footer';
 import Tag from '../Components/Tag';
 import {datas} from './Data';
-import { Vlogs } from './Data';
 import { getAllBlogPosts } from '../Lib/Data';
 
 
