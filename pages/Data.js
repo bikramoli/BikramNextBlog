@@ -1,0 +1,1 @@
+export const datas = ['Web-Development',"Interview",'Android',"Desktop",'IOS','Web-Development',"Interview",'Android',"Desktop",'IOS','Web-Development',"Interview",'Android',"Desktop",'IOS']
