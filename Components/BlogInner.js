@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 import { BsThreeDots } from "react-icons/bs";
-import Toc from "./Toc";
+
 
 function BlogInner({ data, content, headings }) {
   return (
@@ -53,9 +53,7 @@ function BlogInner({ data, content, headings }) {
           </div>
         </div>
       </div>
-      <div className="toc ml-auto max-w-xs">
-        <Toc headings={headings} />
-      </div>
+      
     </div>
   );
 }

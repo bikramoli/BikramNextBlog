@@ -4,10 +4,14 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Head from "next/head";
 import BlogInner from "../../Components/BlogInner";
-import { SWRConfig } from "swr";
+//remark-heading-id
+//input
+// # Hello World {#custom-id}
+//output
+// <h3 id="custom-id">Hello world</h3>
 import headingId from "remark-heading-id";
-import { getHeadings } from "../../Lib/GetHeadings";
-import LikeBtn from "../../Components/LikeBtn";
+
+
 
 export const getStaticPaths = () => {
   const allBlogs = getAllBlogPosts();
@@ -56,36 +60,13 @@ function id({ data, content, id, headings }) {
         <meta name="title" content={data.Title} />
         <meta name="description" content={data.Abstract} />
 
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://blogs.soumyajit.tech/" />
-        <meta property="og:title" content={data.Title} />
-        <meta property="og:description" content={data.Abstract} />
-        <meta
-          property="og:image"
-          content={`https://raw.githubusercontent.com/soumyajit4419/Bits-0f-C0de/main/public${data.HeaderImage}`}
-        />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://blogs.soumyajit.tech/" />
-        <meta property="twitter:title" content={data.Title} />
-        <meta property="twitter:description" content={data.Abstract} />
-        <meta
-          property="twitter:image"
-          content={`https://raw.githubusercontent.com/soumyajit4419/Bits-0f-C0de/main/public${data.HeaderImage}`}
-        />
+       
       </Head>
 
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
         <div className="py-24">
           <BlogInner data={data} content={content} headings={headings} />
-          <LikeBtn id={id}/>
-          <BlogShare data={data} />
-
-          <SWRConfig>
-            <Comments id={id} />
-          </SWRConfig>
-
           <Footer />
         </div>
       </div>
