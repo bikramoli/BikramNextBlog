@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BiTerminal } from "react-icons/bi";
+import { BiCode, BiTerminal } from "react-icons/bi";
 import { SiAboutDotMe } from "react-icons/si";
 import { BiSun, BiMoon } from "react-icons/bi";
-import { VscGithub } from "react-icons/vsc";
+import { VscGithub, VscPerson } from "react-icons/vsc";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
-import { FaGithub, FaHome, FaUser } from "react-icons/fa";
+import { FaGithub, FaHome, FaSearch, FaUser ,FaCode } from "react-icons/fa";
 
 
 function Navbar() {
@@ -36,11 +36,16 @@ function Navbar() {
   return (
     <>
       
-<nav  className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+<nav  className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-50">
   <div className="container flex flex-wrap items-center justify-between mx-auto">
     <Link href="/"> 
-    <a  className="flex">
-      <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Micro-Bytes 1.0</span>
+    <a  className="flex hover:text-indigo-500">
+                  <span className="text-xl font-semibold">
+                    <FaCode className="text-xl" />
+                  </span>
+                  <span className="mx-3 font-semibold text-base md:text-base">
+                    Web-Infosys
+                  </span>
     </a>
     </Link>
  
@@ -49,7 +54,7 @@ function Navbar() {
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           
         </div>
-        <input type="text" id="email-adress-icon" className="block w-full p-2 pl-10 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."/>
+      <input type="text" id="email-adress-icon" className="block w-full p-2 pl-10 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."/>
       </div>
       <button data-collapse-toggle="mobile-menu-3" type="button" className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-3" aria-expanded="false">
       <span className="sr-only">Open main menu</span>
@@ -61,17 +66,42 @@ function Navbar() {
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
       <li>
-        <Link href="/">
-        <a className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page"><FaHome/></a>
-        </Link>
+              <button className="flex items-center mx-2 lg:mx-4 text-base text-gray-800 hover:text-indigo-600 dark:text-gray-500">
+                <span className="text-xl">
+                  {isLogin ? (
+                    <IoLogOutOutline
+                      className="text-xl"
+                      onClick={handelSignOut}
+                    />
+                  ) : (
+                    <AiOutlineGoogle
+                      className="text-xl"
+                      onClick={handelSignIn}
+                    />
+                  )}
+                </span>
+              </button>
       </li>
       <li>
-        <Link href="/about">
-        <a  className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><FaUser/></a>
-        </Link>
+              <Link href="/about">
+                <a className="flex items-center mx-2  lg:mx-4 text-base text-gray-800 hover:text-indigo-600 dark:text-gray-500">
+                  <span className="text-xl ">
+                    <FaUser className="text-xl" />
+                  </span>
+                </a>
+              </Link>
       </li>
       <li>
-        <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><VscGithub/></a>
+              <a
+                className="flex items-center mx-2 lg:mx-4 text-black-800 hover:text-indigo-600 dark:text-gray-500"
+                href="https://github.com/soumyajit4419"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span className="text-lg">
+                  <VscGithub className="text-xl" />
+                </span>
+              </a>
       </li>
     </ul>
   </div>
