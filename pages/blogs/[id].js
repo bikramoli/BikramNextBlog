@@ -10,6 +10,7 @@ import BlogInner from "../../Components/BlogInner";
 //output
 // <h3 id="custom-id">Hello world</h3>
 import headingId from "remark-heading-id";
+import { getHeadings } from "../../Lib/GetHeading";
 
 
 export const getStaticPaths = () => {

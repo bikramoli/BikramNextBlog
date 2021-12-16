@@ -1,16 +1,15 @@
 import Link from "next/link";
 import React from "react";
 
-import { Vlogs } from "../pages/Data";
 
-function TableOfContent() {
+function TableOfContent({headings}) {
     return(
         <nav className="sticky top-32 overflow-auto toc-inner">
             <ul>
-            {Vlogs.map((vlog, index)=>
-                <li key={index}  
+            {headings.map((heading, index)=>
+                <li key={heading.id}  
                 className="mt-4 text-lg text-gray-700 dark:text-gray-400">
-                  <Link href={'/'}>{vlog.title}</Link>  
+                  <Link href={`#${heading.id}`}>{heading.text}</Link>  
                 </li>
             )}
             </ul>
