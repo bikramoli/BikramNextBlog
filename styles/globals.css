@@ -40,7 +40,3 @@ button:focus {
     display: none;
   }
 }
-
-.toc-inner {
-  max-height: calc(100vh - 25vh);
-}

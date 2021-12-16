@@ -29,8 +29,8 @@ export default function Home({blogs}) {
         <Header/>
         {/* Tag are displayed here... */}
         <div className=" w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center ">
-              {datas.map((tag,index) => (
-               <Tag key={index} tag={tag}/>
+              {blogs.map((blog,index) => (
+               <Tag key={index} Tags={blog.data.Tags}/>
               ))}
             </div>
 

@@ -4,11 +4,8 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Head from "next/head";
 import BlogInner from "../../Components/BlogInner";
-//remark-heading-id
-//input
-// # Hello World {#custom-id}
-//output
-// <h3 id="custom-id">Hello world</h3>
+
+
 import headingId from "remark-heading-id";
 import { getHeadings } from "../../Lib/GetHeading";
 
@@ -59,14 +56,13 @@ function id({ data, content, id, headings }) {
         <title>{data.Title}</title>
         <meta name="title" content={data.Title} />
         <meta name="description" content={data.Abstract} />
-
-       
       </Head>
 
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
         <div className="py-24">
-          <BlogInner data={data} content={content} headings={headings}/>
+          <BlogInner data={data} content={content} headings={headings} />
+        
           <Footer />
         </div>
       </div>

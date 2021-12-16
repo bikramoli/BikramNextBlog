@@ -2,7 +2,6 @@ import { MDXRemote } from "next-mdx-remote";
 import { BsThreeDots } from "react-icons/bs";
 import TableOfContent from "./TableOfCont";
 
-
 function BlogInner({ data, content, headings }) {
   return (
     <div className="mx-auto flex justify-center max-w-screen-xl px-6">
@@ -33,7 +32,7 @@ function BlogInner({ data, content, headings }) {
               <BsThreeDots />
             </p>
 
-            <article className="prose lg:prose-lg py-7 bg-gray-50 dark:prose-dark">
+            <article className="prose lg:prose-lg py-7 dark:prose-dark">
               <MDXRemote {...content} />
             </article>
 
@@ -54,8 +53,8 @@ function BlogInner({ data, content, headings }) {
           </div>
         </div>
       </div>
-      <div className="toc ml-auto  max-w-xs">
-        <TableOfContent headings={headings}/>
+      <div className="toc ml-auto max-w-xs">
+        <TableOfContent headings={headings} />
       </div>
     </div>
   );
