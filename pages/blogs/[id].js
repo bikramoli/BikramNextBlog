@@ -39,14 +39,14 @@ export const getStaticProps = async (context) => {
     mdxOptions: { remarkPlugins: [headingId] },
   });
 
-//   const headings = await getHeadings(content);
+  const headings = await getHeadings(content);
 
   return {
     props: {
       data: data,
       content: mdxSource,
       id: params.id,
-    //   headings: headings,
+      headings: headings,
     },
   };
 };
@@ -65,7 +65,7 @@ function id({ data, content, id, headings }) {
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
         <div className="py-24">
-          <BlogInner data={data} content={content} />
+          <BlogInner data={data} content={content} headings={headings}/>
           <Footer />
         </div>
       </div>
