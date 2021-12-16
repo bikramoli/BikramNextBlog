@@ -1,5 +1,6 @@
 import { MDXRemote } from "next-mdx-remote";
 import { BsThreeDots } from "react-icons/bs";
+import TableOfContent from "./TableOfCont";
 
 
 function BlogInner({ data, content, headings }) {
@@ -54,7 +55,7 @@ function BlogInner({ data, content, headings }) {
         </div>
       </div>
       <div className="toc ml-auto text-gray-50 max-w-xs">
-        <h1>hello world hdfdsfhsdfdjjddddddddddddddjdffffffffffffffffddddddddddddddddd</h1>
+        <TableOfContent/>
       </div>
     </div>
   );
