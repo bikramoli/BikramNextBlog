@@ -32,7 +32,7 @@ function BlogInner({ data, content, headings }) {
               <BsThreeDots />
             </p>
 
-            <article className="prose lg:prose-lg py-7 dark:prose-dark">
+            <article className="prose lg:prose-lg py-7 bg-gray-50 dark:prose-dark">
               <MDXRemote {...content} />
             </article>
 
@@ -53,7 +53,9 @@ function BlogInner({ data, content, headings }) {
           </div>
         </div>
       </div>
-      
+      <div className="toc ml-auto text-gray-50 max-w-xs">
+        <h1>hello world hdfdsfhsdfdjjddddddddddddddjdffffffffffffffffddddddddddddddddd</h1>
+      </div>
     </div>
   );
 }
