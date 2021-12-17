@@ -11,7 +11,7 @@ function BlogInner({ data, content, headings }) {
           src={data.HeaderImage}
           alt="Article Image"
         />
-
+                                                                
         <div className="p-4">
           <div className="flex flex-col items-center">
             <div className="flex justify-around">
