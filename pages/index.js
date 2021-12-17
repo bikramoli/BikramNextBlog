@@ -1,10 +1,9 @@
+import {useState, useEffect} from 'react';
 import Head from 'next/head';
 import Navbar from '../Components/Navbar';
 import Header from '../Components/Header';
 import BlogHeader from '../Components/BlogHeader';
 import Footer from '../Components/Footer';
-import Tag from '../Components/Tag';
-import {datas} from './Data';
 import { getAllBlogPosts } from '../Lib/Data';
 
 
@@ -17,6 +16,12 @@ const allBlogs = getAllBlogPosts();
   }
 }
 export default function Home({blogs}) {
+
+  const [blogsData, setBlogsData] = useState(blogs);
+  const [selectedTag, setSelectedTag] = useState();
+  
+
+
   return (
     <>
       <Head>
@@ -30,14 +35,25 @@ export default function Home({blogs}) {
         {/* Tag are displayed here... */}
         <div className=" w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center ">
               {blogs.map((blog,index) => (
-               <Tag key={index} Tags={blog.data.Tags}/>
+              <button key={index} className="inline-block px-3 ml-3 py-1 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded-full bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500 cursor:pointer"
+              
+              onClick={(e)=>{
+                e.preventDefault();
+                setSelectedTag(blog.data.Tags.split(" ")[1])
+                const filterData = blogsData.find((dat)=>dat.data.Tags.split(' ')[1]=== selectedTag);
+                setBlogsData([filterData])
+                console.log(filterData)
+                
+              }}>
+               <p>{blog.data.Tags.split(" ")[1]}</p>
+              </button> 
               ))}
             </div>
 
          {/* vlog header map function */}
          <div className="px-0.5 md:px-7 pb-14 pt-6 mx-auto">
           <div className="flex flex-wrap">
-            {blogs.map( (blog)=> {
+            {blogsData.map( (blog)=> {
                 return (
                     <>
                         <BlogHeader  

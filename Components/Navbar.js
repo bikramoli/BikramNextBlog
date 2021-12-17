@@ -75,13 +75,6 @@ function Navbar() {
                 </span>
               </button>
 
-              <Link href="/about">
-                <a className="flex items-center mx-2  lg:mx-4 text-base text-gray-800 hover:text-indigo-600 dark:text-gray-50">
-                  <span className="text-xl ">
-                    <VscGithub className="text-xl" />
-                  </span>
-                </a>
-              </Link>
             </div>
           </div>
         </div>
