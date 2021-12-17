@@ -19,7 +19,7 @@ export default function Home({blogs}) {
 
   const [blogsData, setBlogsData] = useState(blogs);
   const [selectedTag, setSelectedTag] = useState();
-  
+  const [isActive, setIsActive] = useState(false);
 
 
   return (
@@ -36,14 +36,14 @@ export default function Home({blogs}) {
         <div className=" w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center ">
               {blogs.map((blog,index) => (
               <button key={index} className="inline-block px-3 ml-3 py-1 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded-full bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500 cursor:pointer"
-              
+              style={{background:index=== isActive? "red": ""}}
               onClick={(e)=>{
                 e.preventDefault();
                 setSelectedTag(blog.data.Tags.split(" ")[1])
                 const filterData = blogsData.find((dat)=>dat.data.Tags.split(' ')[1]=== selectedTag);
                 setBlogsData([filterData])
                 console.log(filterData)
-                
+                setIsActive(index)
               }}>
                <p>{blog.data.Tags.split(" ")[1]}</p>
               </button> 
