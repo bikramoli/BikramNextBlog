@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { BiTerminal } from "react-icons/bi";
+import { BiCode, BiTerminal } from "react-icons/bi";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { VscGithub } from "react-icons/vsc";
 
@@ -32,9 +32,9 @@ function Navbar() {
               <Link href="/">
                 <a className="flex items-center hover:text-indigo-600 text-gray-800 dark:text-gray-50">
                   <span className="text-xl font-semibold">
-                    <BiTerminal className="text-xl" />
+                    <BiCode className="text-xl" />
                   </span>
-                  <span className="mx-3 font-semibold text-base md:text-base">
+                  <span className="mx-3 font-bold text-base text-red-600 md:text-base">
                     Web-Infosys
                   </span>
                 </a>
