@@ -4,10 +4,7 @@ import Link from "next/link";
 import { BiCode} from "react-icons/bi";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { VscGithub } from "react-icons/vsc";
-
-
 import { IoLogOutOutline } from "react-icons/io5";
-
 
 function Navbar({scrollHeight}) {
   const [isMounted, setIsMounted] = useState(false);
@@ -24,7 +21,7 @@ function Navbar({scrollHeight}) {
   return (
     <>
       
-      <header className="fixed w-full border-t-4 bg-white dark:bg-gray-900 border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50" style={{background: scrollHeight>50?'gray':''}}>
+      <header className= "fixed w-full border-t-4 bg-white dark:bg-gray-900 border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50" style={{background: scrollHeight >= 50 ? theme==="dark"?'gray':'red':''}}>
         <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
             <div>
