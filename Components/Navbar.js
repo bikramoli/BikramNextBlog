@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { BiCode, BiTerminal } from "react-icons/bi";
+import { BiCode} from "react-icons/bi";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { VscGithub } from "react-icons/vsc";
 
@@ -9,7 +9,7 @@ import { VscGithub } from "react-icons/vsc";
 import { IoLogOutOutline } from "react-icons/io5";
 
 
-function Navbar() {
+function Navbar({scrollHeight}) {
   const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme()
 
@@ -20,12 +20,11 @@ function Navbar() {
   const toggleTheme = () => {
       setTheme(theme === "light" ? "dark" : "light");
   };
- 
-
+  console.log(scrollHeight)
   return (
     <>
       
-      <header className="fixed w-full border-t-4 bg-white dark:bg-dark border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50">
+      <header className="fixed w-full border-t-4 bg-white dark:bg-gray-900 border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50" style={{background: scrollHeight>50?'gray':''}}>
         <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
             <div>
@@ -35,7 +34,7 @@ function Navbar() {
                     <BiCode className="text-xl" />
                   </span>
                   <span className="mx-3 font-bold text-base text-red-600 md:text-base">
-                    Web-Infosys
+                    Digit-Infosys
                   </span>
                 </a>
               </Link>

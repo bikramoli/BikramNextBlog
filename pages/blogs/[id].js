@@ -4,8 +4,6 @@ import Navbar from "../../Components/Navbar";
 import Footer from "../../Components/Footer";
 import Head from "next/head";
 import BlogInner from "../../Components/BlogInner";
-
-
 import headingId from "remark-heading-id";
 import { getHeadings } from "../../Lib/GetHeading";
 
