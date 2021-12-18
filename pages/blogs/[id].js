@@ -29,7 +29,7 @@ export const getStaticProps = async (context) => {
       String(blog.data.Title.split(" ").join("-").toLowerCase()) === params.id
   );
 
-  const { data, content } = page;
+  const { data, content, readTime } = page;
   const mdxSource = await serialize(content, {
     scope: data,
     mdxOptions: { remarkPlugins: [headingId] },
@@ -43,11 +43,12 @@ export const getStaticProps = async (context) => {
       content: mdxSource,
       id: params.id,
       headings: headings,
+      readTime: readTime
     },
   };
 };
 
-function id({ data, content, id, headings }) {
+function id({ data, content, id, headings, readTime }) {
   return (
     <>
       <Head>
@@ -59,7 +60,7 @@ function id({ data, content, id, headings }) {
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
         <div className="py-24">
-          <BlogInner data={data} content={content} headings={headings} />
+          <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
         
           <Footer />
         </div>

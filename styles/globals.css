@@ -27,8 +27,8 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #6264f3 !important;
-  border-radius: 5px !important;
+  background: #8f91f1 !important;
+  border-radius: 11px !important;
 }
 
 button:focus {
@@ -43,3 +43,6 @@ button:focus {
 .toc-inner {
   max-height: calc(100vh - 25vh);
 }
+/* .blogHeader:hover {
+  box-shadow: 2px 8px 2px 1px #969696;
+} */

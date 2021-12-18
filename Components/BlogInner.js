@@ -2,10 +2,20 @@ import { MDXRemote } from "next-mdx-remote";
 import { BsThreeDots } from "react-icons/bs";
 import TableOfContent from "./TableOfCont";
 
-function BlogInner({ data, content, headings }) {
+function BlogInner({ data, content, headings, readTime }) {
+
   return (
     <div className="mx-auto flex justify-center max-w-screen-xl px-6">
       <div className="rounded-lg shadow-lg bg-white dark:bg-gray-900 pb-8">
+        <span className="text-gray-900 font-semibold mt-6 text-xs tracking-widest mt-0.5 dark:text-indigo-300">
+          Website | {readTime.text}
+        </span>
+        <a className="block mt-2 text-2xl mb-10 sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
+          {data.Title}
+        </a>
+        <p className=" flex mx-2 font-semibold mb-10 text-gray-700 dark:text-gray-100">
+          Written by <p className="mx-2 text-indigo-500">{data.Author},</p>Published on {data.PublishedData}
+        </p>
         <img
           className="object-cover w-full h-72"
           src={data.HeaderImage}
@@ -14,7 +24,7 @@ function BlogInner({ data, content, headings }) {
                                                                 
         <div className="p-4">
           <div className="flex flex-col items-center">
-            <div className="flex justify-around">
+            {/* <div className="flex justify-around">
               {data.Tags.split(" ").map((tag) => (
                 <p
                   key={tag}
@@ -23,14 +33,8 @@ function BlogInner({ data, content, headings }) {
                   {tag}
                 </p>
               ))}
-            </div>
-            <a className="block mt-2 text-2xl sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
-              {data.Title}
-            </a>
-
-            <p className="text-5xl pt-2">
-              <BsThreeDots />
-            </p>
+            </div> */}
+            
 
             <article className="prose lg:prose-lg py-7 dark:prose-dark">
               <MDXRemote {...content} />
@@ -45,6 +49,7 @@ function BlogInner({ data, content, headings }) {
                 <p className="mx-2 font-semibold text-gray-700 dark:text-gray-100">
                   {data.Author}
                 </p>
+          
                 <p className="text-sm font-medium leading-4 text-gray-600 dark:text-gray-200">
                   Author
                 </p>

@@ -66,11 +66,11 @@ export default function Home({blogs}) {
          </div>
              {/* Tag are displayed here.. */}
          <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 dark:bg-gray-800 bg-red-50">
-          <nav className="sticky top-32">
+          <nav className="sticky top-32 overflow-auto toc-inner">
             <h1 className=' m-2 mb-5 font-bold text-indigo-500'>TOP CATEGORIES</h1>
 
             {blogs.map((blog,index) => (
-            <button key={index} className=" inline-block px-3 ml-1.5 py-1.5 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500 cursor:pointer"
+            <button key={index} className=" inline-block px-3 ml-1.5 py-1.5 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500 dark:hover:bg-red-500 cursor:pointer"
             style={{background:index=== isActive? "red": ""}}
       
             onClick={(e)=>{
