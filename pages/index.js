@@ -45,7 +45,7 @@ export default function Home({blogs}) {
         <Navbar scrollHeight={scrollHeight}/>
         <Header/>
 
-        <div className="mx-auto flex justify-center max-w-screen-xl">  
+        <div className="mx-auto flex justify-center max-w-screen-xl py-8">  
         {/* vlog header map function */}
          <div className="px-0.5 md:px-7 pb-14 pt-2 mx-auto mx-3 dark:bg-gray-800 bg-green-50">
            <h1 className='pl-10  font-bold text-indigo-500'>RECENTLY PUBLISHED</h1>
@@ -66,7 +66,7 @@ export default function Home({blogs}) {
          </div>
              {/* Tag are displayed here.. */}
          <div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 dark:bg-gray-800 bg-red-50">
-          <nav className="sticky top-32 overflow-auto toc-inner">
+          <nav className="sticky top-32 overflow-auto toc-inner ">
             <h1 className=' m-2 mb-5 font-bold text-indigo-500'>TOP CATEGORIES</h1>
 
             {blogs.map((blog,index) => (
@@ -90,7 +90,12 @@ export default function Home({blogs}) {
           </nav>
           </div>
         </div>
-       
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
         <Footer/>
       </div>
     </>

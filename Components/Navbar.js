@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { BiCode} from "react-icons/bi";
+import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifi0, BiWifiOff} from "react-icons/bi";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { VscGithub } from "react-icons/vsc";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -44,9 +44,9 @@ function Navbar({scrollHeight}) {
               >
                 <span className="text-lg">
                   { theme === "dark" ? (
-                    <BiSun className="text-xl" />
+                    <BiToggleLeft className="text-3xl" />
                   ) : (
-                    <BiMoon className="text-xl" />
+                    <BiToggleRight className="text-3xl" />
                   )}
                 </span>
               </button>
@@ -58,7 +58,7 @@ function Navbar({scrollHeight}) {
                 target="_blank"
               >
                 <span className="text-lg">
-                  <VscGithub className="text-lg" />
+                  <BiWifi className="text-lg" />
                 </span>
               </a>
 
