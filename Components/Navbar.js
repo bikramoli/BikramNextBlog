@@ -31,7 +31,7 @@ function Navbar({scrollHeight}) {
                     <BiCode className="text-xl" />
                   </span>
                   <span className="mx-3 font-bold text-base text-red-600 md:text-base">
-                    Digit-Infosys\bikram
+                    Digit-Infosys 1.0
                   </span>
                 </a>
               </Link>
