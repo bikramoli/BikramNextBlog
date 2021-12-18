@@ -7,13 +7,15 @@ import { VscGithub } from "react-icons/vsc";
 import { IoLogOutOutline } from "react-icons/io5";
 
 function Navbar({scrollHeight}) {
-  const [isMounted, setIsMounted] = useState(false);
   const { theme, setTheme } = useTheme()
+ const [status, setStatus] = useState()
+  
 
   useEffect(() => {
-    setIsMounted(true);
+   setStatus(window.ononline)
   }, []);
- 
+  
+  
   const toggleTheme = () => {
       setTheme(theme === "light" ? "dark" : "light");
   };
@@ -58,7 +60,11 @@ function Navbar({scrollHeight}) {
                 target="_blank"
               >
                 <span className="text-lg">
-                  <BiWifi className="text-lg" />
+                  {status ?
+                  <BiWifi className="text-lg" />:
+                  <BiWifiOff className="text-lg" />
+                  }
+                  
                 </span>
               </a>
 
