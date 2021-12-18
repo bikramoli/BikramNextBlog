@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifi0, BiWifiOff} from "react-icons/bi";
-import { BiSun, BiMoon } from "react-icons/bi";
-import { VscGithub } from "react-icons/vsc";
 import { IoLogOutOutline } from "react-icons/io5";
 
 function Navbar({scrollHeight}) {
@@ -33,7 +31,7 @@ function Navbar({scrollHeight}) {
                     <BiCode className="text-xl" />
                   </span>
                   <span className="mx-3 font-bold text-base text-red-600 md:text-base">
-                    Digit-Infosys
+                    Digit-Infosys\bikram
                   </span>
                 </a>
               </Link>

@@ -95,7 +95,6 @@ export default function Home({blogs}) {
          <br/>
          <br/>
          <br/>
-         <br/>
         <Footer/>
       </div>
     </>
