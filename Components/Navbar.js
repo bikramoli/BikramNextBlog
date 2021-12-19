@@ -35,6 +35,22 @@ function Navbar({scrollHeight}) {
       console.log(error);
     });
   };
+
+  //handle handelSignOut
+  const handelSignOut = () =>{
+    e.preventDefault();
+    signOut(auth)
+    .then((res)=>{
+      localStorage.removeItem("user");
+
+      setIsLogin(false);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+    
+  }
+
   
   const toggleTheme = () => {
       setTheme(theme === "light" ? "dark" : "light");
