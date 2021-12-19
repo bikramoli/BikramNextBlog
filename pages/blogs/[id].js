@@ -63,6 +63,8 @@ function id({ data, content, id, headings, readTime }) {
         <div className="py-24">
           <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
            <Comment/>
+           <br/>
+           <br/>
           <Footer />
         </div>
       </div>
