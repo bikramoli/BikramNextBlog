@@ -3,16 +3,38 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifiOff} from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
+import {signInWithPopup, signOut} from "firebase/auth";
+import { auth, provider } from "firebase-admin";
 
 function Navbar({scrollHeight}) {
-  const { theme, setTheme } = useTheme()
- const [status, setStatus] = useState()
-  
+  const { theme, setTheme } = useTheme();
+  const [status, setStatus] = useState();
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
    setStatus(window.ononline)
   }, []);
   
+  //handle signIn
+  const handelSignIn = (e) =>{
+    e.preventDefault();
+    signInWithPopup(auth, provider)
+    .then((res)=>{
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          name: res.user.displayName,
+          photo: res.user.photoURL,
+          token: res.user.accessToken,
+          uid: res.user.uid
+        })
+      );
+      setIsLogin(true);
+    })
+    .catch((error)=>{
+      console.log(error);
+    });
+  };
   
   const toggleTheme = () => {
       setTheme(theme === "light" ? "dark" : "light");
