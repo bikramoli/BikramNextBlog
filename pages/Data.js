@@ -1,6 +1,15 @@
 export const datas = ['Web-Development',"Interview",'Android',"Desktop",'IOS','Web-Development',"Interview",'Android',"Desktop",'IOS','Web-Development',"Interview",'Android',"Desktop",'IOS']
 
-
+export const Commentss =    [
+    {
+        name:"bikram",
+        comment: "This is the best course"
+    },
+    {
+     name:"bishal",
+     comment: "This is the best course"
+    }
+]
 
 export const Vlogs = [
     {
