@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifi0, BiWifiOff} from "react-icons/bi";
+import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifiOff} from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
 
 function Navbar({scrollHeight}) {
@@ -10,7 +10,7 @@ function Navbar({scrollHeight}) {
   
 
   useEffect(() => {
-   setStatus(window.ononline)
+   setStatus(!window.ononline)
   }, []);
   
   
@@ -31,7 +31,7 @@ function Navbar({scrollHeight}) {
                     <BiCode className="text-xl" />
                   </span>
                   <span className="mx-3 font-bold text-base text-red-600 md:text-base">
-                    Digit-Infosys 1.0
+                    Digit-Infosys
                   </span>
                 </a>
               </Link>

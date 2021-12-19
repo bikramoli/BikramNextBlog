@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer";
 import Head from "next/head";
 import BlogInner from "../../Components/BlogInner";
 import headingId from "remark-heading-id";
+import Comment from "../../Components/Comment";
 import { getHeadings } from "../../Lib/GetHeading";
 
 
@@ -61,7 +62,7 @@ function id({ data, content, id, headings, readTime }) {
         <Navbar />
         <div className="py-24">
           <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
-        
+           <Comment/>
           <Footer />
         </div>
       </div>
