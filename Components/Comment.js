@@ -10,7 +10,6 @@ function Comment(){
         <>
         
             <div className="flex flex-wrap mb-6 mt-6 mx-auto max-w-screen-md">
-                <h1>{comment}</h1>
                 <div className="relative container p-1 appearance-none label-floating">
                     <form>
                         <textarea
@@ -48,36 +47,35 @@ function Comment(){
                <div className="m-2 md:m-0">
                 {commentsList.map((comment,i) => (
                 <div className="space-y-4 py-3" key={i}>
-                <div className="flex">
-                  <div className="flex-shrink-0 mr-1.5 md:mr-3">
-                    <img
-                      className="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10"
-                      src={comment.userImage}
-                      alt={comment.userName}
-                       
-                    />
-                  </div>
-                  <div className="flex-1 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
-                    <strong className="text-gray-700 dark:text-gray-200">
-                      {comment.name}
-                    </strong>{" "}
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {comment.date.split(" ").slice(1, 4).join("-")}
-                    </span>
-                    {comment.comment.split("\n").map((com, index) => (
-                      <p
-                        className="text-sm text-gray-600 dark:text-gray-300"
-                        key={index}
-                      >
-                        {com}
-                      </p>
-                    ))}
-                  </div>
+                    <div className="flex">
+                        <div className="flex-shrink-0 mr-1.5 md:mr-3">
+                            <img
+                            className="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10"
+                            src={comment.userImage}
+                            alt={comment.userName}
+                            />
+                        </div>
+                        <div className="flex-1 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                            <strong className="text-gray-700 dark:text-gray-200">
+                            {comment.name}
+                            </strong>{" "}
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                            {comment.date.split(" ").slice(1, 4).join("-")}
+                            </span>
+                            {comment.comment.split("\n").map((com, index) => (
+                            <p
+                                className="text-sm text-gray-600 dark:text-gray-300"
+                                key={index}
+                            >
+                                {com}
+                            </p>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-              </div>
-            ))}
-        </div>
-      </div>
+              ))}
+               </div>
+            </div>
         </>
     )
 }
