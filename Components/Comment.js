@@ -55,7 +55,14 @@ function Comment(){
                     <span className="text-xs text-gray-500 dark:text-gray-400">
                       {comment.date.split(" ").slice(1, 4).join("-")}
                     </span>
-                   
+                    {comment.comment.split("\n").map((com, index) => (
+                      <p
+                        className="text-sm text-gray-600 dark:text-gray-300"
+                        key={index}
+                      >
+                        {com}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
