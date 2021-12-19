@@ -67,11 +67,18 @@ function Navbar({scrollHeight}) {
               </a>
 
               <button className="flex items-center mx-2 lg:mx-4 text-base text-gray-800 hover:text-indigo-600 dark:text-gray-50">
-                <span className="text-lg">
-                  <IoLogOutOutline
+              <span className="text-lg">
+                  {isLogin ? (
+                    <IoLogOutOutline
                       className="text-xl"
+                      onClick={handelSignOut}
                     />
-                  
+                  ) : (
+                    <AiOutlineGoogle
+                      className="text-xl"
+                      onClick={handelSignIn}
+                    />
+                  )}
                 </span>
               </button>
 

@@ -9,7 +9,6 @@ function Comment({id}){
    const {data} = useSWR(`api/comments/${id}`, ...args => fetch(...args).then((res)=> res.json));
 
    
-
     return(
         <>
         
