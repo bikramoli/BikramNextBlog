@@ -3,13 +3,15 @@ export const datas = ['Web-Development',"Interview",'Android',"Desktop",'IOS','W
 export const Commentss =    [
     {
         name:"bikram",
+        userImage: "",
+        date: '4 7 9',
         comment: "This is all about h",
-        date: '4 7 9'
     },
     {
-     name:"bishal",
-     comment: "This is the best course",
-     date: '1 2 3'
+        name:"bishal",
+        userImage:"",
+        date: '1 2 3',
+        comment: "This is the best course",
     }
 ]
 

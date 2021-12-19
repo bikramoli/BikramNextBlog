@@ -10,7 +10,7 @@ function Navbar({scrollHeight}) {
   
 
   useEffect(() => {
-   setStatus(!window.ononline)
+   setStatus(window.ononline)
   }, []);
   
   
