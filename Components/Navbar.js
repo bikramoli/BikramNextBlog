@@ -5,7 +5,7 @@ import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifiOff} from "react-ico
 import { IoLogOutOutline } from "react-icons/io5";
 import { AiOutlineGoogle } from "react-icons/ai";
 import {signInWithPopup, signOut} from "firebase/auth";
-import { auth, provider } from "firebase-admin";
+import { auth, provider } from "../Firebase/Firebase";
 
 function Navbar({scrollHeight}) {
   const { theme, setTheme } = useTheme();
