@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Commentss} from "../pages/Data";
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import useSWR,{useSWRConfig } from 'swr'; // swr is react hook library for data fetching -pros-> UI will be fast,light,resuable,realtime
 
 const fetcher = (...arg) => {fetch(...arg).then((res)=> res.json())}
@@ -17,6 +17,17 @@ function Comment({id}){
      console.log("please login first");
     }
 
+    if(comment && user){
+        const commentData = {
+            userName: user.name,
+            userImage: user.photo,
+            comment: comment,
+            date: Timestamp.now(),
+            userId: user.id,
+        }
+        const ref= collection(db, "posts", id, "comments");
+        const docRef = await addDoc(ref, commentData);
+    }
    }
 
    
