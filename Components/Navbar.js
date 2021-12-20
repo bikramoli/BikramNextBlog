@@ -7,15 +7,25 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import {signInWithPopup, signOut} from "firebase/auth";
 import { auth, provider } from "../Firebase/Firebase";
 
+
 function Navbar({scrollHeight}) {
   const { theme, setTheme } = useTheme();
   const [status, setStatus] = useState();
   const [isLogin, setIsLogin] = useState(false);
+  const [name, setName] = useState("");
+  const [photo, setPhoto] = useState("");
 
   useEffect(() => {
-   setStatus(window.ononline)
+  setStatus(window.ononline)
+  const user = JSON.parse(localStorage.getItem('user'));
+   if (user){
+     setIsLogin(true); 
+     setName(user.name);
+     setPhoto(user.photo);
+     console.log(user);
+   }
   }, []);
-  
+
   //handle signIn
   const handelSignIn = (e) =>{
     e.preventDefault();
@@ -38,7 +48,7 @@ function Navbar({scrollHeight}) {
   };
 
   //handle handelSignOut
-  const handelSignOut = () =>{
+  const handelSignOut = (e) =>{
     e.preventDefault();
     signOut(auth)
     .then((res)=>{
@@ -55,7 +65,6 @@ function Navbar({scrollHeight}) {
   
   return (
     <>
-      
       <header className= "fixed w-full border-t-4 bg-white dark:bg-gray-900 border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50" style={{borderBottom: scrollHeight >= 50 ? theme==="dark"?'solid indigo':'':''}}>
         <div className="container mx-auto px-6 py-5">
           <div className="flex items-center justify-between">
@@ -116,6 +125,17 @@ function Navbar({scrollHeight}) {
                   )}
                 </span>
               </button>
+              {/* Image fetch from google */}
+              <div className="flex-shrink-0 mr-1.5 md:mr-3">
+                  <img
+                  className="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10"
+                  src={photo}
+                  alt={name}
+                  />
+              </div>
+              {/* <div>
+                <p>{name}</p>
+              </div> */}
 
             </div>
           </div>

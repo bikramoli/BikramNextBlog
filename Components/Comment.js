@@ -1,17 +1,20 @@
 import {useState} from 'react';
-import {Commentss} from "../pages/Data";
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import { db } from '../Firebase/Firebase';
 import useSWR,{useSWRConfig } from 'swr'; // swr is react hook library for data fetching -pros-> UI will be fast,light,resuable,realtime
 
-const fetcher = (...arg) => {fetch(...arg).then((res)=> res.json())}
+
+const fetcher = (...args) => fetch(...args).then((res)=> res.json());
 
 function Comment({id}){
    const [comment, setComment] = useState("");
     
-   const {data} = useSWR(`api/comments/${id}`, fetcher);
+   const {mutate} = useSWRConfig();
+   const {data, error} = useSWR(`api/comments/${id}`, fetcher);
 
-   const handlePost = (e) =>{
+   const handlePost = async (e) =>{
     e.preventDefault();
+    setComment("");
     const user = JSON.parse(localStorage.getItem('user')) ;
     if(!user){
      console.log("please login first");
@@ -23,17 +26,15 @@ function Comment({id}){
             userImage: user.photo,
             comment: comment,
             date: Timestamp.now(),
-            userId: user.id,
+            userId: user.uid,
         }
         const ref= collection(db, "posts", id, "comments");
         const docRef = await addDoc(ref, commentData);
+        mutate(`api/post/${id}`);
     }
    }
-
-   
     return(
         <>
-        
             <div className="flex flex-wrap mb-6 mt-6 mx-auto max-w-screen-md">
                 <div className="relative container p-1 appearance-none label-floating">
                     <form>
@@ -62,8 +63,8 @@ function Comment({id}){
             </div>
             <div className="mx-auto max-w-screen-md">
                <div className="m-2 md:m-0">
-                {data.comments.map((comment,i) => (
-                <div className="space-y-4 py-3" key={i}>
+                {data && data.comments && data.comments.map((comment) => (
+                <div className="space-y-4 py-3" key={comment.id}>
                     <div className="flex">
                         <div className="flex-shrink-0 mr-1.5 md:mr-3">
                             <img
