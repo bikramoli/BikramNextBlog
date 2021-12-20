@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { BiCode, BiToggleLeft, BiToggleRight, BiWifi, BiWifiOff} from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
+import { AiOutlineGoogle } from "react-icons/ai";
 import {signInWithPopup, signOut} from "firebase/auth";
 import { auth, provider } from "firebase-admin";
 
@@ -42,16 +43,12 @@ function Navbar({scrollHeight}) {
     signOut(auth)
     .then((res)=>{
       localStorage.removeItem("user");
-
       setIsLogin(false);
     })
     .catch((error)=>{
       console.log(error);
     })
-    
   }
-
-  
   const toggleTheme = () => {
       setTheme(theme === "light" ? "dark" : "light");
   };

@@ -7,6 +7,7 @@ import BlogInner from "../../Components/BlogInner";
 import headingId from "remark-heading-id";
 import Comment from "../../Components/Comment";
 import { getHeadings } from "../../Lib/GetHeading";
+import { SWRConfig } from "swr";
 
 
 export const getStaticPaths = () => {
@@ -62,7 +63,10 @@ function id({ data, content, id, headings, readTime }) {
         <Navbar />
         <div className="py-24">
           <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
-           <Comment/>
+
+          <SWRConfig>
+             <Comment id={id}/>
+          </SWRConfig>
            <br/>
            <br/>
           <Footer />

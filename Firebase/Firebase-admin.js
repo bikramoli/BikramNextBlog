@@ -1,4 +1,3 @@
-const {initializeApp} = require('firebase-admin/app');
 
 var admin = require("firebase-admin");
 
