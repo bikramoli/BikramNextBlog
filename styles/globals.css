@@ -46,3 +46,6 @@ button:focus {
 /* .blogHeader:hover {
   box-shadow: 2px 8px 2px 1px #969696;
 } */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
