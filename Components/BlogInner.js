@@ -7,13 +7,13 @@ function BlogInner({ data, content, headings, readTime }) {
   return (
     <div className="mx-auto flex justify-center max-w-screen-xl px-6">
       <div className="rounded-lg shadow-lg bg-white dark:bg-gray-900 pb-8">
-        <span className="text-gray-900 font-semibold mt-6 text-xs tracking-widest mt-0.5 dark:text-indigo-300">
+        <span className="text-gray-900 font-semibold pl-4 mt-6 text-xs tracking-widest mt-0.5 dark:text-indigo-300">
           Website | {readTime.text}
         </span>
-        <a className="block mt-2 text-2xl mb-10 sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
+        <a className="block mt-2 text-2xl mb-10 pl-4 sm:text-4xl font-semibold text-gray-800 dark:text-gray-100">
           {data.Title}
         </a>
-        <p className=" flex mx-2 font-semibold mb-10 text-gray-700 dark:text-gray-100">
+        <p className=" flex mx-4 font-semibold mb-10 text-gray-700 dark:text-gray-100">
           Written by <p className="mx-2 text-indigo-500">{data.Author},</p>Published on {data.PublishedData}
         </p>
         <img

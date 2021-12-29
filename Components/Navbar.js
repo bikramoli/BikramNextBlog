@@ -9,19 +9,16 @@ import { Offline, Online } from "react-detect-offline";
 
 function Navbar({scrollHeight}) {
   const { theme, setTheme } = useTheme();
-  const [status, setStatus] = useState();
   const [isLogin, setIsLogin] = useState(false);
   const [name, setName] = useState("");
   const [photo, setPhoto] = useState("");
 
   useEffect(() => {
-  setStatus(!window.ononline)
   const user = JSON.parse(localStorage.getItem('user'));
    if (user){
      setIsLogin(true); 
      setName(user.name);
      setPhoto(user.photo);
-     console.log(user);
    }
   }, []);
 
@@ -65,7 +62,7 @@ function Navbar({scrollHeight}) {
   return (
     <>
       <header className= "fixed w-full border-t-4 bg-white dark:bg-gray-900 border-indigo-600 dark:border-indigo-900 shadow dark:shadow-2 z-50" style={{borderBottom: scrollHeight >= 50 ? theme==="dark"?'solid indigo':'':''}}>
-        <div className="container mx-auto px-2 py-2">
+        <div className="container mx-auto px-6 py-3">
           <div className="flex items-center justify-between">
             <div>
               <Link href="/">
@@ -76,6 +73,7 @@ function Navbar({scrollHeight}) {
                   <span className="mx-3 font-bold text-base text-red-600 md:text-base">
                     Digit-Infosys
                   </span>
+                 
                 </a>
               </Link>
             </div>
@@ -95,9 +93,7 @@ function Navbar({scrollHeight}) {
               </button>
               <a
                 className="flex items-center mx-2 lg:mx-4 text-gray-800 hover:text-indigo-600 dark:text-gray-50"
-                href="https://github.com/"
-                rel="noopener noreferrer"
-                target="_blank"
+               
               >
                 {/* show wifi if online else nowifi */}
                 <span className="text-lg">

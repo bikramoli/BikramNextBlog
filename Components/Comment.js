@@ -1,21 +1,24 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { db } from '../Firebase/Firebase';
 import useSWR,{useSWRConfig } from 'swr'; // swr is react hook library for data fetching -pros-> UI will be fast,light,resuable,realtime
 
 
-const fetcher = (...args) => fetch(...args).then((res)=> res.json());
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 
 function Comment({id}){
    const [comment, setComment] = useState("");
-    
+   
    const {mutate} = useSWRConfig();
-   const {data, error} = useSWR(`api/comments/${id}`, fetcher);
-
+   const {data} = useSWR(`/api/comments/${id}`, fetcher);
+   
    const handlePost = async (e) =>{
     e.preventDefault();
     setComment("");
     const user = JSON.parse(localStorage.getItem('user')) ;
+    
     if(!user){
      console.log("please login first");
     }
@@ -87,8 +90,10 @@ function Comment({id}){
                             >
                                 {com}
                             </p>
+                            
                             ))}
                         </div>
+                        
                     </div>
                 </div>
               ))}

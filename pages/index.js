@@ -26,7 +26,8 @@ export default function Home({blogs}) {
   useEffect(()=>{
    window.addEventListener('scroll', ()=>{
     setScrollHeight(window.scrollY)
-   });
+   })
+
    return(()=>{
      window.removeEventListener('scroll', ()=>{
       setScrollHeight(window.scrollY)
@@ -51,14 +52,13 @@ export default function Home({blogs}) {
            <h1 className='pl-10  font-bold text-indigo-500'>RECENTLY PUBLISHED</h1>
           <div className="flex flex-wrap">
             {blogsData.map( (blog)=> {
-                return (
-                    <>
+                return (    
                         <BlogHeader  
                         key={blog.data.Id}
                         data={blog.data}
                         content={blog.content}
+                        readTime={blog.readTime}
                          /> 
-                    </>
                 )
             })}
               

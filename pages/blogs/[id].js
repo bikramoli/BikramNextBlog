@@ -25,6 +25,7 @@ export const getStaticPaths = () => {
 export const getStaticProps = async (context) => {
   const params = context.params;
   const allBlogs = getAllBlogPosts();
+ 
 
   const page = allBlogs.find(
     (blog) =>
@@ -32,6 +33,7 @@ export const getStaticProps = async (context) => {
   );
 
   const { data, content, readTime } = page;
+
   const mdxSource = await serialize(content, {
     scope: data,
     mdxOptions: { remarkPlugins: [headingId] },
@@ -51,6 +53,7 @@ export const getStaticProps = async (context) => {
 };
 
 function id({ data, content, id, headings, readTime }) {
+  console.log(`readtime:${readTime.text}`)
   return (
     <>
       <Head>
@@ -62,6 +65,7 @@ function id({ data, content, id, headings, readTime }) {
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
         <div className="py-24">
+          
           <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
 
           <SWRConfig>
