@@ -51,7 +51,7 @@ export default function Home({blogs}) {
          <div className="px-0.5 md:px-7 pb-14 pt-2 mx-auto mx-3 dark:bg-gray-800 bg-green-50">
            <h1 className='pl-10  font-bold text-indigo-500'>RECENTLY PUBLISHED</h1>
           <div className="flex flex-wrap">
-            {blogsData.map( (blog)=> {
+            {blogsData.map( (blog , index)=> {
                 return (    
                         <BlogHeader  
                         key={blog.data.Id}
@@ -73,12 +73,13 @@ export default function Home({blogs}) {
             <button key={index} className=" inline-block px-3 ml-1.5 py-1.5 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase rounded bg-indigo-500 dark:bg-indigo-600 hover:bg-red-500 dark:hover:bg-red-500 cursor:pointer"
             style={{background:index=== isActive? "red": ""}}
       
-            onClick={(e)=>{
-              e.preventDefault();
+            onClick={()=>{
+            
               setSelectedTag(blog.data.Tags.split(" ")[1])
-              const filterData = blogsData.find((dat)=>dat.data.Tags.split(' ')[1]=== selectedTag);
-              setBlogsData([filterData])
-              console.log(filterData)
+              console.log(`selected tag: ${blog.data.Tags.split(" ")[1]}`)
+              const filterData = blogs.filter((dat)=>dat.data.Tags.split(' ')[1]=== blog.data.Tags.split(" ")[1]);
+              setBlogsData(filterData)
+               console.log(filterData)
               setIsActive(index)
             }}>
               {blog.data.Tags.split(" ")[1]}
