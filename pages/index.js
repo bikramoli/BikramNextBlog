@@ -51,7 +51,7 @@ export default function Home({blogs}) {
          <div className="px-0.5 md:px-7 pb-14 pt-2 mx-auto mx-3 dark:bg-gray-800 bg-green-50">
            <h1 className='pl-10  font-bold text-indigo-500'>RECENTLY PUBLISHED</h1>
           <div className="flex flex-wrap">
-            {blogsData.map( (blog , index)=> {
+            {blogsData.map( (blog)=> {
                 return (    
                         <BlogHeader  
                         key={blog.data.Id}
