@@ -7,11 +7,13 @@ import useSWR,{useSWRConfig } from 'swr'; // swr is react hook library for data 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const Alert =()=> <h1>Please login...</h1>
+const Alert =(props)=> <div className= {props.type==='err'?'z-50 p-5 rounded-lg max-w-sm text-white bg-red-400 dark:bg-purple-600 font-medium inset-x-0 mx-auto': 'z-50 p-5 rounded-lg max-w-sm text-white bg-green-400 dark:bg-purple-600 font-medium inset-x-0 mx-auto'}>{props.message}</div>
 
 
 function Comment({id}){
    const [comment, setComment] = useState("");
+   const [message, setMessage] = useState('');
+   const [type, setType] = useState("")
    const [showAlert, setShowAlert] = useState(false)
    const {mutate} = useSWRConfig();
    const {data} = useSWR(`/api/comments/${id}`, fetcher);
@@ -24,6 +26,8 @@ function Comment({id}){
     if(!user){
      console.log("please login first");
      setShowAlert(true)
+     setType("err")
+     setMessage("Please login make comment...")
      setInterval(() => {
         setShowAlert(false)
      }, 3000)
@@ -41,10 +45,16 @@ function Comment({id}){
         const ref= collection(db, "posts", id, "comments");
         const docRef = await addDoc(ref, commentData);
         mutate(`api/post/${id}`);
+        setShowAlert(true)
+        setType("success")
+        setMessage("Comment successful !!!")
+        setInterval(() => {
+            setShowAlert(false)
+         }, 3000)
     }
    }
     return(
-        <>  {showAlert? <Alert/>:""}
+        <>  {showAlert? <Alert message = {message} type={type} />:""}
             <div className="flex flex-wrap mb-6 mt-6 mx-auto max-w-screen-md">
                 <div className="relative container p-1 appearance-none label-floating">
                     <form>
