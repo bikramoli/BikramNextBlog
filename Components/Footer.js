@@ -10,7 +10,7 @@ function Footer() {
       <div className="bg-indigo-600 dark:bg-indigo-900">
         <div className="container mx-auto py-4 px-5 flex-wrap flex-col sm:flex-row md:text-center">
           
-          <span className="inline-flex space-x-8 text-xl sm:ml-auto sm:mt-0 justify-center sm:justify-start py-5">
+          <span className="flex space-x-8 text-xl sm:ml-auto sm:mt-0 justify-center  py-5 ">
             <a
               className="text-gray-50"
               href="https://twitter.com/"
@@ -46,7 +46,7 @@ function Footer() {
             </a>
           </span>
           
-          <p className="mx-3 font-bold text-base text-gray-100 md:text-base">
+          <p className="mx-3 font-bold text-base text-gray-100 md:text-base text-center">
             Digit-Infosys
           </p>
           

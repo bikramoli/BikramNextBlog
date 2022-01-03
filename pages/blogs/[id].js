@@ -64,17 +64,17 @@ function id({ data, content, id, headings, readTime }) {
 
       <div className="min-h-screen relative bg-white dark:bg-gray-900">
         <Navbar />
+    
         <div className="py-24">
-          
           <BlogInner data={data} content={content} headings={headings} readTime={readTime} />
 
           <SWRConfig>
              <Comment id={id}/>
           </SWRConfig>
            <br/>
-           <br/>
-          <Footer />
+           <br/> 
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -36,7 +36,7 @@ function BlogInner({ data, content, headings, readTime }) {
             </div> */}
             
 
-            <article className="prose lg:prose-lg py-7 dark:prose-dark">
+            <article className="prose lg:prose-lg py-7 dark:prose-dark content">
               <MDXRemote {...content} />
             </article>
 
