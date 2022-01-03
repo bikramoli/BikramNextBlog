@@ -49,3 +49,21 @@ button:focus {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+@media (max-width: 960px) {
+  .blogHeader {
+    flex-wrap: wrap;
+  }
+  .popCoc {
+    display: none;
+  }
+  .blgHed {
+    order: 2;
+  }
+  .tagCoc {
+    order: 1;
+    text-align: center;
+    background: none;
+    margin-bottom: 1rem;
+  }
+}
