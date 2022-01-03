@@ -7,10 +7,12 @@ import useSWR,{useSWRConfig } from 'swr'; // swr is react hook library for data 
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
+const Alert =()=> <h1>Please login...</h1>
+
 
 function Comment({id}){
    const [comment, setComment] = useState("");
-   
+   const [showAlert, setShowAlert] = useState(false)
    const {mutate} = useSWRConfig();
    const {data} = useSWR(`/api/comments/${id}`, fetcher);
    
@@ -21,6 +23,11 @@ function Comment({id}){
     
     if(!user){
      console.log("please login first");
+     setShowAlert(true)
+     setInterval(() => {
+        setShowAlert(false)
+     }, 3000)
+     
     }
 
     if(comment && user){
@@ -37,7 +44,7 @@ function Comment({id}){
     }
    }
     return(
-        <>
+        <>  {showAlert? <Alert/>:""}
             <div className="flex flex-wrap mb-6 mt-6 mx-auto max-w-screen-md">
                 <div className="relative container p-1 appearance-none label-floating">
                     <form>
