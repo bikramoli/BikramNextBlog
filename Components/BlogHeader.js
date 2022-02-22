@@ -32,9 +32,6 @@ function BlogHeader({ data, content, readTime }) {
                 <h4>{data.Author}</h4>
               </span>
               <span className="flex text-gray-900 text-xs tracking-widest mt-0.5 dark:text-indigo-300">
-                <span>
-                  <BiCalendar />{" "}
-                </span>
                 <span>{data.PublishedData.split(" ").join("-")}</span>
               </span>
             </span>
