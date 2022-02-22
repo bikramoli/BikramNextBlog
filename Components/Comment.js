@@ -1,13 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { db } from "../Firebase/Firebase";
 import useSWR, { useSWRConfig } from "swr"; // swr is react hook library for data fetching -pros-> UI will be fast,light,resuable,realtime
-import { FiDelete } from "react-icons/fi";
-import {
-  AiFillDelete,
-  AiOutlineDelete,
-  AiOutlineDeleteColumn,
-} from "react-icons/ai";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -65,6 +59,7 @@ function Comment({ id }) {
       }, 3000);
     }
   };
+
   return (
     <>
       {" "}
@@ -124,11 +119,11 @@ function Comment({ id }) {
                       </p>
                     ))}
                   </div>
-                  <div>
-                    <button>
+                  {/* <div>
+                    <button onClick={handleDelete(comment.id)}>
                       <AiFillDelete />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}

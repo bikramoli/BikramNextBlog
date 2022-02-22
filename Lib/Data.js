@@ -5,7 +5,6 @@ import readingTime from "reading-time";
 
 const dir = path.join(process.cwd(), "_content");
 
-
 export const getAllBlogPosts = () => {
   const allFiles = fs.readdirSync(dir);
   const allBlogs = [];
@@ -30,7 +29,7 @@ export const getAllBlogPosts = () => {
 
     const { data, content } = matter(fileContent);
     const readTime = readingTime(content);
-    allBlogs.push({ data, content, readTime});
+    allBlogs.push({ data, content, readTime });
   });
 
   return allBlogs;
